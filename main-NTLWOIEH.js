@@ -17058,7 +17058,7 @@ var _y = (() => {
             this.projects = [{
                 title: "Todo Management Application",
                 link: "https://www.youtube.com/watch?v=3XAwT8Ifueg",
-                gitUrl: "",
+                gitUrl: "https://github.com/pdkv1999/todoapp",
                 images: ["assets/todo-application/1-createtodo.png", "assets/todo-application/2-updatetodo.png", "assets/todo-application/3-pagination.png", "assets/todo-application/4-pagination.png", "assets/todo-application/5-filtering.png", "assets/todo-application/6-sorting.png"],
                 delay: 300
             }, {
