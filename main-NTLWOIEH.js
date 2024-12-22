@@ -17057,13 +17057,13 @@ var _y = (() => {
         ngOnInit() {
             this.projects = [{
                 title: "Todo Management Application",
-                link: "https://www.youtube.com/watch?v=3XAwT8Ifueg",
+                link: "",
                 gitUrl: "https://github.com/pdkv1999/todoapp",
                 images: ["assets/todo-application/1-createtodo.png", "assets/todo-application/2-updatetodo.png", "assets/todo-application/3-pagination.png", "assets/todo-application/4-pagination.png", "assets/todo-application/5-filtering.png", "assets/todo-application/6-sorting.png"],
                 delay: 300
             }, {
                 title: "Employee Management System",
-                link: "https://www.youtube.com/watch?v=XsTl_Lvbvys",
+                link: "",
                 gitUrl: "https://github.com/pdkv1999/employeemanagementsystem",
                 images: ["assets/employee-management-system/1-employee-management-system-homepage.png", "assets/employee-management-system/2-employee-management-system-addemployee.png", "assets/employee-management-system/3-employee-management-system-updateemployee.png", "assets/employee-management-system/4-employee-management-system-deleteemployee.png", "assets/employee-management-system/5-employee-management-system-deleteemployee2.png"],
                 delay: 300
@@ -17148,7 +17148,7 @@ var My = (() => {
             [1, "container"],
             ["data-aos", "fade-up", "data-aos-duration", "1000", "data-aos-easing", "ease-out-cubic"],
             ["data-aos", "fade-up", "data-aos-duration", "1000", "data-aos-delay", "200", 1, "education-item"],
-            ["href", "https://www.unt.edu/", "target", "_blank"],
+            ["href", "https://www.ucc.ie/en/", "target", "_blank"],
             ["data-aos", "fade-up", "data-aos-duration", "1000", "data-aos-delay", "300", 1, "education-item"],
             ["href", "https://www.sastra.edu/", "target", "_blank"]
         ],
