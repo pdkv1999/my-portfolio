@@ -17064,19 +17064,19 @@ var _y = (() => {
             }, {
                 title: "Employee Management System",
                 link: "https://www.youtube.com/watch?v=XsTl_Lvbvys",
-                gitUrl: "https://github.com/pdkv1999/employeemanagementsystem/tree/main",
+                gitUrl: "https://github.com/pdkv1999/employeemanagementsystem",
                 images: ["assets/employee-management-system/1-employee-management-system-homepage.png", "assets/employee-management-system/2-employee-management-system-addemployee.png", "assets/employee-management-system/3-employee-management-system-updateemployee.png", "assets/employee-management-system/4-employee-management-system-deleteemployee.png", "assets/employee-management-system/5-employee-management-system-deleteemployee2.png"],
                 delay: 300
             }, {
                 title: "Rock Paper Scissor Game",
-                link: "https://akhilcharugulla.github.io/Rockpapaerscissor-clone-for-deployment/",
-                gitUrl: "https://github.com/akhilcharugulla/Rockpapaerscissor-clone-for-deployment",
+                link: "https://pdkv1999.github.io/Rockpapaerscissor-clone-for-deployment/",
+                gitUrl: "https://github.com/pdkv1999/Rockpapaerscissor-clone-for-deployment",
                 images: ["assets/rock-paper-scissor/1-Rock paper Scissor-home.png", "assets/rock-paper-scissor/2-Rock paper Scissor-gamestart.png", "assets/rock-paper-scissor/3-Rock paper Scissor-outcome.png", "assets/rock-paper-scissor/4-Rock paper Scissor-multiplesets.png"],
                 delay: 200
             }, {
                 title: "Calculator Application",
-                link: "https://akhilcharugulla.github.io/calculator-for-deployment/",
-                gitUrl: "https://github.com/akhilcharugulla/calculator-for-deployment",
+                link: "https://pdkv1999.github.io/calculator-for-deployment/",
+                gitUrl: "https://github.com/pdkv1999/calculator-for-deployment/",
                 images: ["assets/calculator/1-calculator-main page.png", "assets/calculator/2-calculator-action.png", "assets/calculator/3-calculator-someactions.png", "assets/calculator/4-calculator-someactions-clearhistory.png"],
                 delay: 300
             }, ], this.responsiveOptions = [{
