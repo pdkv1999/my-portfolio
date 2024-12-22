@@ -17056,12 +17056,6 @@ var _y = (() => {
         }
         ngOnInit() {
             this.projects = [{
-                title: "Streamlining Campus Dining",
-                link: "https://devpost.com/software/streamlining-campus-dining",
-                gitUrl: "https://github.com/farhanarrafi/hackunt2023-dining-scheduler",
-                images: ["assets/streamling-campus-dining/1-login.png", "assets/streamling-campus-dining/2-meal-options.png", "assets/streamling-campus-dining/3-table-options.png", "assets/streamling-campus-dining/4-menu-selection.png", "assets/streamling-campus-dining/5-confirmation.png"],
-                delay: 300
-            }, {
                 title: "Todo Management Application",
                 link: "https://www.youtube.com/watch?v=3XAwT8Ifueg",
                 gitUrl: "",
@@ -17085,13 +17079,7 @@ var _y = (() => {
                 gitUrl: "https://github.com/akhilcharugulla/calculator-for-deployment",
                 images: ["assets/calculator/1-calculator-main page.png", "assets/calculator/2-calculator-action.png", "assets/calculator/3-calculator-someactions.png", "assets/calculator/4-calculator-someactions-clearhistory.png"],
                 delay: 300
-            }, {
-                title: "Shopping Cart",
-                link: "https://github.com/akhilcharugulla/frontend-projects/tree/master/tic_tac_toe",
-                gitUrl: "https://github.com/akhilcharugulla/frontend-projects/tree/master/tic_tac_toe",
-                images: ["assets/employee-management-system/5-employee-management-system-deleteemployee2.png"],
-                delay: 300
-            }], this.responsiveOptions = [{
+            }, ], this.responsiveOptions = [{
                 breakpoint: "1400px",
                 numVisible: 3,
                 numScroll: 3
