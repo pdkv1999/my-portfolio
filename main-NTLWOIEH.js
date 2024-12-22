@@ -17064,7 +17064,7 @@ var _y = (() => {
             }, {
                 title: "Employee Management System",
                 link: "https://www.youtube.com/watch?v=XsTl_Lvbvys",
-                gitUrl: "https://github.com/akhilcharugulla/employeemanagementsystem",
+                gitUrl: "https://github.com/pdkv1999/employeemanagementsystem/tree/main",
                 images: ["assets/employee-management-system/1-employee-management-system-homepage.png", "assets/employee-management-system/2-employee-management-system-addemployee.png", "assets/employee-management-system/3-employee-management-system-updateemployee.png", "assets/employee-management-system/4-employee-management-system-deleteemployee.png", "assets/employee-management-system/5-employee-management-system-deleteemployee2.png"],
                 delay: 300
             }, {
