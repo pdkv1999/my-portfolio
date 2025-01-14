@@ -21,7 +21,7 @@ export class ContactComponent {
   };
 
   formSubmitted = false;
-  Email : string ="charugullaakhil@gmail.com"
+  Email : string ="pdkv1999@gmail.com"
   constructor(private http: HttpClient) {}
 
   onSubmit() {
@@ -33,7 +33,7 @@ export class ContactComponent {
         ...this.formData,
         _replyto: this.formData.email,
         _subject: `New contact form message from ${this.formData.name}`,
-        _to: 'charugullaaakhil@gmail.com'
+        _to: 'pdkv1999@gmail.com'
       };
 
       this.http.post(formspreeUrl, body, { headers: headers }).subscribe(
