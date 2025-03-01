@@ -17079,6 +17079,13 @@ var _y = (() => {
                 gitUrl: "https://github.com/pdkv1999/calculator-for-deployment/",
                 images: ["assets/calculator/1-calculator-main page.png", "assets/calculator/2-calculator-action.png", "assets/calculator/3-calculator-someactions.png", "assets/calculator/4-calculator-someactions-clearhistory.png"],
                 delay: 300
+            },
+            {
+                title: "NASA API",
+                link: "https://nasa-snowy.vercel.app/",
+                gitUrl: "https://github.com/pdkv1999/NASA",
+                images: ["assets/nasa/nasa.png"],
+                delay: 300
             }, ], this.responsiveOptions = [{
                 breakpoint: "1400px",
                 numVisible: 3,
