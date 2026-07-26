@@ -1,15 +1,31 @@
-<nav class="nav" id="nav">
-    <div class="container">
-        <a href="#home" class="logo">Akhil Charugulla</a>
-        <button id="mobile-menu-icon" class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-        <ul class="nav-menu" id="nav-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#project">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <span class="logo">DP</span>
+      <span><span class="brand-name">Dileep Kumar Varma Penmetsa</span><span class="brand-subtitle">Full Stack Software Engineer</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#top" data-no="01">Home</a>
+      <a href="#about" data-no="02">About</a>
+      <a href="#education" data-no="03">Education</a>
+      <a href="#experience" data-no="04">Experience</a>
+      <a href="#projects" data-no="05">Projects</a>
+      <a href="#skills" data-no="06">Skills</a>
+      <a href="#contact" data-no="07">Contact</a>
     </div>
+    <a class="btn btn-dark nav-cta" href="assets/Dileep/Dileep-Resume.pdf" download>↓ Download CV</a>
+    <button class="nav-toggle" [attr.aria-expanded]="menuOpen" aria-label="Toggle menu" (click)="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="container mobile-menu" [class.open]="menuOpen">
+    <a href="#top" (click)="closeMenu()">Home</a>
+    <a href="#about" (click)="closeMenu()">About</a>
+    <a href="#education" (click)="closeMenu()">Education</a>
+    <a href="#experience" (click)="closeMenu()">Experience</a>
+    <a href="#projects" (click)="closeMenu()">Projects</a>
+    <a href="#skills" (click)="closeMenu()">Skills</a>
+    <a href="#contact" (click)="closeMenu()">Contact</a>
+    <a class="btn btn-dark mobile-menu-cta" href="assets/Dileep/Dileep-Resume.pdf" download (click)="closeMenu()">↓ Download CV</a>
+  </div>
 </nav>

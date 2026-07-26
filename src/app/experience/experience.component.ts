@@ -1,86 +1,101 @@
 import { Component } from '@angular/core';
-import { NgFor,NgIf,NgClass } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgFor, NgIf, NgClass } from '@angular/common';
+import { RevealDirective } from '../shared/reveal.directive';
+
+interface TimelineItem {
+  year: string;
+  title: string;
+  company: string;
+  location: string;
+  details: string[];
+  tags: string[];
+  open: boolean;
+}
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [NgFor, NgIf, NgClass],
+  imports: [NgFor, NgIf, NgClass, RevealDirective],
   templateUrl: './experience.component.html',
-  styleUrl: './experience.component.scss'
+  styleUrl: './experience.component.scss',
 })
 export class ExperienceComponent {
-  selectedItem: any;
-  isMobile: boolean = false;
-
-  ngOnInit(): void {
-    this.selectedItem = this.experienceItems[0];
-    this.checkIfMobile();
-    window.addEventListener('resize', () => this.checkIfMobile());
-   }
-
-  experienceItems = [
+  timeline: TimelineItem[] = [
     {
-      title: 'Software Engineer Intern at Copart',
-      date: 'Dallas, Texas | Jan 2024 – Present',
-      link: 'https://www.copart.com/',
-      details:[
-        "Created 15+ responsive Angular UI components based on Figma designs using PrimeNG and SCSS, ensuring compatibility with AngularJS legacy systems and boosting user engagement by 20%.",
-        "Broadcasted events to Google Analytics (GTM) delivering 35% increase in actionable insights, enabling marketing team to optimize campaign strategies and drive 20% growth in product sales.",
-        "Led weekly release cycles delivering 10+ critical defect fixes, maintaining 100% SLA compliance and enhancing customer satisfaction.",
-        "Revamped Lot Details pages through Angular14 migration utilizing TypeScript, HTML, CSS, Spring Boot, Bootstrap, REST APIs, and MySQL, delivering enhanced UI functionalities for clients.",
-        "Automated UI testing with BDD framework for Copart website, achieving 40% defect reduction through end-to-end testing while improving application reliability and release cycles.",
-        "Orchestrated comprehensive A/B testing for UI optimization, managing 20+ concurrent experiments across 10K+ users, driving 15% increase in feature adoption through data-driven strategies.",
-        "Executed secure license uploads & robust search feature, leveraging Angular, TypeScript, RESTful APIs & Spring Boot.",
-        ],
-      delay: 200
-    },
-    {
-      title: 'Software Engineer at Oracle Cerner',
-      date: 'Bengaluru, India | May 2020 – Jan 2023',
-      link:'https://go.oracle.com/LP=142384?src1=:ad:pas:go:dg:a_nas:l5:RC_GOOG240501P00011C00354:MainAd&gad_source=1&gclid=Cj0KCQjwzva1BhD3ARIsADQuPnWMiAg3NgZ6ys7_TyPjesEmSYfNxSebchOBN1qEClV4WwueXRwKaaEaAikWEALw_wcB',
-
-      details:[
-        "Incorporated server-side rendering with Thymeleaf in Angular application, reducing page load time by 25% while achieving 15% performance boost and enhancing SEO metrics.",
-        "Optimized website performance by 3% through lazy loading implementation and Webpack code splitting, delivering faster component access and improved user experience.",
-        "Resolved HP-Fortify and SonarQube vulnerabilities boosting code quality by 30%, while implementing Splunk log visualization for enhanced system monitoring.",
-        "Architected NGINX server configuration with reverse proxy for SpringBoot services, deploying on AWS EC2 instances to achieve 20% faster request processing.",
-        "Engineered Visit List Filter Queue feature prioritizing patient encounters based on appointment dates and emergencies, seamlessly integrating with Revenue Cycle system.",
-        "Transformed APIs from synchronous to asynchronous using Spring Reactive Programming, achieving 50% performance optimization and implementing CI/CD through Jenkins pipeline.",
-        "Streamlined EHR data retrieval through API development for Cerner Revenue Cycle, resulting in 30% improvement in order processing efficiency.",
-        "Worked on spike, stories, and defects for the product Revenue Cycle, which involved assessing the interaction between multiple systems and API/design changes required to implement new features.",
-        ],
-      delay: 300
-    },
-    {
-      title: 'Software Engineer Intern <br>at Collins Aerospace',
-      date: 'Hyderabad, India | December 2019 – May 2020',
-      link:'https://www.collinsaerospace.com/',
+      year: 'Feb 2026 – Apr 2026',
+      title: 'Full Stack Java Engineer (Contract)',
+      company: "Children's Health Ireland",
+      location: 'Dublin, Ireland',
       details: [
-          "Developed Object-Oriented Fullstack Applications and REST APIs using Java 8 functional programming, adhering to SOLID principles and implementing design patterns.",
-          "Achieved 85%+ coverage with JUnit tests, leveraged Postman for backend testing, and contibuted to code reviews",
-          "Implemented user-friendly web login functionality and highly secure microservices-based REST APIs for IMMS Consumer Services using Java Spring Boot. Included the generation of JWT tokens, improving user access security by 35%.",
-          "Built an automation tool named Bidirectional Trace Validation, which crawls the JAMA & SVN websites to capture the requirement numbers, significantly reducing  the team’s manual effort by 30 hours during release activity. ",
-          "Day To Day Work: Worked with Flight Management System and Flight User Interface teams, mostly improving the consistency and efficiency of enterprise applications, and was involved in Continuous Build and Test (CBT)."      
+        'Designed and developed Java 17 / Spring Boot backend services and ReactJS frontends for an enterprise platform; evaluated complex user requests and clarified functional requirements for new features.',
+        'Wrote hands-on code and performed code reviews; demonstrated standards to deliver high-quality products and guided junior engineers on adherence to quality standards.',
+        'Deployed on Azure cloud with Docker containers; maintained CI/CD pipelines (GitHub Actions) with JUnit and Selenium automated tests achieving 90% coverage.',
+        'Operated production environments with an SRE mindset: monitoring, alerting, incident response and reliability improvements.',
       ],
-      delay: 400
-    }
+      tags: ['Java 17', 'Spring Boot', 'ReactJS', 'Azure', 'Docker'],
+      open: true,
+    },
+    {
+      year: 'Jun 2025 – Dec 2025',
+      title: 'Senior Full Stack Java Engineer (Contract)',
+      company: 'PrimaHealth',
+      location: 'Cork, Ireland',
+      details: [
+        'Designed and developed 6 software solutions using Java 17, Spring Boot, REST APIs and Microservices based on business needs; built ReactJS / AngularJS responsive, mobile-first frontends.',
+        'Applied OOAD and design patterns (Factory, Strategy, Repository, Observer) to build scalable, maintainable applications; deployed on Tomcat and Reactor Netty application servers.',
+        'Designed database solutions across Oracle, PostgreSQL (relational) and MongoDB, Cassandra (NoSQL); implemented mobile data synchronisation and offline storage patterns.',
+        'Built automated testing frameworks: JUnit/TestNG unit tests, Selenium/Cucumber E2E tests, Rest-Assured/Karate API tests — achieving 90% coverage across all services.',
+        'Deployed on AWS and GCP cloud platforms with Docker and Kubernetes; maintained Jenkins and GitHub Actions CI/CD pipelines with automated quality gates.',
+        'Used GitHub Copilot daily for AI-assisted development; mentored 3 engineers on code quality, design patterns and testing standards.',
+        'Operated with an SRE mindset: production monitoring, incident response, postmortems and reliability improvements achieving 99.7% uptime.',
+      ],
+      tags: ['Spring Boot', 'Microservices', 'AWS', 'Kubernetes', 'Mentoring'],
+      open: false,
+    },
+    {
+      year: 'Sep 2024 – May 2025',
+      title: 'Software Engineering Tutor (Freelance)',
+      company: 'University College Cork',
+      location: 'Cork, Ireland',
+      details: [
+        'Delivered teaching on Java full stack, OOAD, design patterns, ReactJS, automated testing and CI/CD to 40+ postgraduate engineers.',
+        'Mentored students on quality standards and SRE practices alongside coursework.',
+      ],
+      tags: ['Teaching', 'Java', 'Mentoring'],
+      open: false,
+    },
+    {
+      year: 'Oct 2021 – Aug 2024',
+      title: 'Full Stack Java Engineer → Senior Engineer',
+      company: 'Oracle Cerner (Healthcare IT)',
+      location: 'Bangalore, India',
+      details: [
+        'Designed and developed 12+ full stack applications using Java 17, Spring Boot, Microservices and REST APIs with ReactJS/AngularJS frontends for a platform serving 3,000+ users across 12 international organisations.',
+        'Applied OOAD and design patterns to build scalable, maintainable enterprise applications; built retail-adjacent, customer-facing transactional workflows (billing, scheduling, inventory management).',
+        'Designed database solutions across Oracle, PostgreSQL, MySQL (relational) and MongoDB, Cassandra (NoSQL); implemented mobile data sync and offline storage for field-deployed applications.',
+        'Built comprehensive automated testing: JUnit/TestNG, Selenium, Playwright, Cucumber, Rest-Assured, Karate — 500+ tests, 90% coverage.',
+        'Deployed on AWS, GCP and Azure with Docker and Kubernetes; maintained Jenkins and GitHub Actions CI/CD, reducing deployment cycle by 70%.',
+        'Used GitHub Copilot and Claude Code daily; contributed to the hiring process (referrals, candidate interviews, recruiting events).',
+        'Operated production environments with an SRE mindset: monitoring, alerting, on-call rotation and incident response; maintained 99.9% uptime across all owned services.',
+        'Mentored 5 development team members on quality standards and design patterns; 3 received promotions within 18 months.',
+      ],
+      tags: ['Java 17', 'Microservices', 'AWS · GCP · Azure', '99.9% uptime', 'Leadership'],
+      open: false,
+    },
+    {
+      year: 'Mar 2020 – Oct 2021',
+      title: 'Full Stack Java Developer',
+      company: 'Cognizant Technology Solutions (CTS)',
+      location: 'Hyderabad, India',
+      details: [
+        'Developed Java/Spring Boot REST APIs and ReactJS frontends; implemented JUnit/Selenium automated tests; deployed on AWS with Docker in Agile sprints.',
+      ],
+      tags: ['Java', 'Spring Boot', 'AWS', 'Agile'],
+      open: false,
+    },
   ];
 
-
-  // toggleItem(item: any) {
-  //     this.selectedItem = item;
-  // }
-
-  toggleItem(item: any) {
-    if (this.isMobile) {
-      this.selectedItem = this.selectedItem === item ? null : item;
-    } else {
-      this.selectedItem = item;
-    }  
-  }
-
-  checkIfMobile() {
-    this.isMobile = window.innerWidth <= 768;
+  toggle(item: TimelineItem): void {
+    item.open = !item.open;
   }
 }

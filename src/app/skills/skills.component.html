@@ -1,46 +1,53 @@
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out-cubic">TECHNICAL SKILLS</h2>
-            <div class="row">
-                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                    <div class="card">
-                        <h3>Programming Languages</h3>
-                        <p>Java, C++, JavaScript, Es6+, TypeScript, Nodejs, Python</p>
-                    </div>
-                </div>
-                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                    <div class="card">
-                        <h3>Technologies/Frameworks</h3>
-                        <p>Spring, Spring Boot, RESTful APIs, Hibernate, Angular, AngularJS, ReactJs, ExpressJs, Cucumber, Thymeleaf, Drupal, CI/CD, Aws</p>
-                    </div>
-                </div>
-                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                    <div class="card">
-                        <h3>Knowledge In</h3>
-                        <p>Maven, Gradle, Spring Security, OAuth2, Splunk, Swagger, Microservices, Kafka, Docker, Selenium, Json, GraphQL, gRPC, Xml, Html, Css, SASS, Agile, Bootstrap, Jsp</p>
-                    </div>
-                </div>
-                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                    <div class="card">
-                        <h3>Databases</h3>
-                        <p>Oracle, MySQL, MongoDB, Redis, Solr</p>
-                    </div>
-                </div>
-                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                    <div class="card">
-                        <h3>Other Tools</h3>
-                        <p>Git, GitLab, Svn, Jira, HP-Fortify, ServiceNow, Jenkins, Postman, Eclipse, STS, IntelliJ, Visual Studio,
-                            Tomcat, Kibana, Scalyr, UCD, Kubernetes, SonarQube, MS-Office
-                        </p>
-                    </div>
-                </div>
-                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                    <div class="card" style="padding-right: 100px;">
-                        <h3>Operating Systems</h3>
-                        <p>Linux, Windows, Android</p>
-                    </div>
-                </div>
-            </div>
+<section>
+  <div class="container">
+    <span class="sec-anchor" id="skills"></span>
+    <div class="section-label">Capability Map</div>
+    <div class="section-head" appReveal>
+      <div>
+        <h2>What I bring.</h2>
+        <p class="section-copy">A capability matrix played out like a game of Go — black stones for what I build, white stones for how I bring quality, reliability and people together. Tap a stone.</p>
+      </div>
+      <div class="goban-legend">
+        <span><i class="stone-dot black"></i> Build &amp; Technical</span>
+        <span><i class="stone-dot white"></i> Practice &amp; Leadership</span>
+      </div>
+    </div>
+
+    <div class="goban-wrap" appReveal>
+      <div class="goban" role="group" aria-label="Capability matrix">
+        <ng-container *ngFor="let p of boardLines; let k = index">
+          <div class="goban-line h" [style.top.%]="p" [style.left.%]="7" [style.width.%]="86"></div>
+          <div class="goban-line v" [style.left.%]="p" [style.top.%]="7" [style.height.%]="86"></div>
+        </ng-container>
+        <span class="goban-star" *ngFor="let s of stars" [style.left.%]="s.left" [style.top.%]="s.top"></span>
+
+        <button
+          *ngFor="let stone of stones; let i = index"
+          class="stone"
+          [class.black]="stone.side === 'black'"
+          [class.white]="stone.side === 'white'"
+          [class.active]="selectedIndex === i"
+          [ngStyle]="stoneStyle(stone)"
+          [attr.aria-label]="stone.title"
+          (click)="select(i)"
+          (mouseenter)="hover(i)"
+          (mouseleave)="hover(null)"
+        >
+          <span class="stone-label">{{ stone.title }}</span>
+        </button>
+      </div>
+
+      <aside class="goban-panel" [attr.data-side]="displayed.side">
+        <div class="panel-body">
+          <div class="panel-side">{{ displayed.side === 'black' ? '⚫' : '⚪' }} {{ sideLabel[displayed.side] }} <b>· {{ displayed.skills.length }} capabilities</b></div>
+          <h3>{{ displayed.title }}</h3>
+          <p class="panel-proof">{{ displayed.proof }}</p>
+          <div class="panel-skills">
+            <span *ngFor="let s of displayed.skills; let idx = index" [style.--d.ms]="idx * 45">{{ s }}</span>
+          </div>
+          <div class="panel-hint">Hover or tap any stone to explore</div>
         </div>
-    </section>
+      </aside>
+    </div>
+  </div>
+</section>

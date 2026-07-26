@@ -1,25 +1,116 @@
-<section id="project">
-    <div class="container" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-        <h2 data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-out-cubic">PROJECTS</h2>
-        <div class="project-grid">
-            <ng-container *ngFor="let project of projects; let i = index">
-                <div class="project-item" [ngClass]="{'top-row': i < 3, 'bottom-row': i >= 3}">
-                    <p-carousel [value]="project.images" [numVisible]="1" [numScroll]="1" [circular]="true" [showNavigators]="true">
-                        <ng-template let-image pTemplate="item">
-                            <div class="img-container">
-                                <img [src]="image" [alt]="project.title">
-                            </div>
-                        </ng-template>
-                    </p-carousel>
-                    <div class="project-title">
-                        <h3>{{project.title}}</h3>
-                    </div>
-                    <div class="project-links">
-                        <a [href]="project.link" target="_blank" class="p-button p-button-rounded p-button-info">View Project</a>
-                        <a [href]="project.gitUrl" target="_blank" class="p-button p-button-rounded p-button-secondary align-center">GitHub</a>
-                    </div>
-                </div>
-            </ng-container>
-        </div>
+<section>
+  <div class="container">
+    <span class="sec-anchor" id="projects"></span>
+    <div class="section-label">Projects</div>
+    <div class="section-head" appReveal>
+      <div>
+        <h2>Hands-on builds alongside the day job.</h2>
+        <p class="section-copy">
+          A few personal and coursework projects that show the fundamentals — full-stack CRUD flows, game logic and
+          front-end UI — behind the production systems I build professionally.
+        </p>
+      </div>
     </div>
+
+    <div class="project-grid">
+      <article class="project-card" appReveal *ngFor="let project of projects">
+        <div class="project-media">
+          <div
+            class="project-slide"
+            *ngFor="let img of project.images; let i = index"
+            [class.active]="i === project.slide"
+            [style.background-image]="'url(' + img + ')'"
+          ></div>
+          <ng-container *ngIf="project.images.length > 1">
+            <button class="project-arrow prev" aria-label="Previous image" (click)="prevSlide(project, $event)">‹</button>
+            <button class="project-arrow next" aria-label="Next image" (click)="nextSlide(project, $event)">›</button>
+            <div class="project-dots">
+              <button
+                class="project-dot"
+                *ngFor="let img of project.images; let i = index"
+                [class.active]="i === project.slide"
+                [attr.aria-label]="'Show image ' + (i + 1)"
+                (click)="goToSlide(project, i, $event)"
+              ></button>
+            </div>
+          </ng-container>
+        </div>
+        <div class="project-body">
+          <div class="card-tags">
+            <span class="pixel-tag" *ngFor="let g of project.groups">{{ g }}</span>
+          </div>
+          <p class="role">{{ project.role }}</p>
+          <h3>{{ project.title }}</h3>
+          <p class="subtitle">{{ project.subtitle }}</p>
+          <p class="summary">{{ project.summary }}</p>
+          <div class="card-tagrow">
+            <span class="mini-tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+          </div>
+          <div class="card-actions">
+            <button class="card-link" type="button" (click)="openCaseStudy(project)">View case study →</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
+
+<div class="case-study-modal" [class.open]="activeProject" [attr.aria-hidden]="!activeProject" role="dialog" aria-modal="true">
+  <div class="case-study-shell" *ngIf="activeProject as project">
+    <div class="case-study-top">
+      <div>
+        <div class="case-study-kicker">Project detail</div>
+        <strong>{{ project.title }}</strong>
+      </div>
+      <button class="case-close" type="button" aria-label="Close case study" (click)="closeCaseStudy()">×</button>
+    </div>
+    <div class="case-study-content">
+      <div class="case-hero">
+        <div class="case-hero-copy">
+          <h2>{{ project.title }}</h2>
+          <p class="case-subtitle">{{ project.subtitle }}</p>
+          <div class="case-meta-grid">
+            <div class="case-meta-item"><span>Role</span><strong>{{ project.role }}</strong></div>
+            <div class="case-meta-item"><span>Categories</span><strong>{{ project.groups.join(' · ') }}</strong></div>
+            <div class="case-meta-item"><span>Focus</span><strong>{{ project.tags.slice(0, 3).join(' · ') }}</strong></div>
+          </div>
+        </div>
+        <div class="project-media case-media">
+          <div
+            class="project-slide"
+            *ngFor="let img of project.images; let i = index"
+            [class.active]="i === project.slide"
+            [style.background-image]="'url(' + img + ')'"
+          ></div>
+          <ng-container *ngIf="project.images.length > 1">
+            <button class="project-arrow prev" aria-label="Previous image" (click)="prevSlide(project, $event)">‹</button>
+            <button class="project-arrow next" aria-label="Next image" (click)="nextSlide(project, $event)">›</button>
+            <div class="project-dots">
+              <button
+                class="project-dot"
+                *ngFor="let img of project.images; let i = index"
+                [class.active]="i === project.slide"
+                [attr.aria-label]="'Show image ' + (i + 1)"
+                (click)="goToSlide(project, i, $event)"
+              ></button>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="case-star">
+        <div class="case-phase" data-phase="S">
+          <div class="case-phase-rail"><span class="case-phase-dot">S</span><span class="case-phase-label">Situation</span></div>
+          <div class="case-phase-body"><div class="case-block"><p>{{ project.summary }}</p></div></div>
+        </div>
+        <div class="case-phase" data-phase="T">
+          <div class="case-phase-rail"><span class="case-phase-dot">T</span><span class="case-phase-label">Task</span></div>
+          <div class="case-phase-body"><div class="case-block"><p>{{ project.role }}</p></div></div>
+        </div>
+        <div class="case-phase" data-phase="R">
+          <div class="case-phase-rail"><span class="case-phase-dot">R</span><span class="case-phase-label">Result</span></div>
+          <div class="case-phase-body"><div class="case-block"><p>{{ project.impact }}</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

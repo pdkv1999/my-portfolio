@@ -1,37 +1,27 @@
-<section id="experience">
-  <div class="container">
-      <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out-cubic">EXPERIENCE</h2>
-      <div class="experience-items">
-          <ng-container *ngFor="let item of experienceItems">
-              <div class="experience-item" [class.selected-item]="selectedItem === item">
-                  <div
-                      class="experience-summary"
-                      (click)="toggleItem(item)"
-                      [ngClass]="{'selected-item': selectedItem === item}"
-                      data-aos="fade-up" data-aos-duration="1000" [attr.data-aos-delay]="item.delay">
-                      <h3 [innerHTML]="item.title"></h3>
-                      <p>{{ item.date }}</p>
-                  </div>
-                  <div *ngIf="isMobile && selectedItem === item" class="experience-detail-container">
-                      <div class="experience-detail" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out-cubic">
-                          <ul class="experience-details-list">
-                              <li *ngFor="let detail of item.details">
-                                  {{ detail }}
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </ng-container>
+<section class="experience-section">
+  <span class="sec-anchor" id="experience"></span>
+  <div class="container timeline-wrap">
+    <div appReveal>
+      <div class="section-label">Experience</div>
+      <h2>Full-stack Java engineering across healthcare IT, contract platforms and enterprise systems.</h2>
+      <p class="section-copy">
+        A focused view of my engineering career so far: where I built and shipped production systems, mentored
+        engineers, and operated services with an SRE mindset. Tap a role to see the details.
+      </p>
+    </div>
+    <div class="timeline-card" appReveal>
+      <div class="time-item" *ngFor="let item of timeline" [ngClass]="{open: item.open}" (click)="toggle(item)">
+        <div class="year">{{ item.year }}</div>
+        <h3>{{ item.title }}</h3>
+        <div class="company-line">{{ item.company }} · {{ item.location }}</div>
+        <ul class="time-detail" *ngIf="item.open">
+          <li *ngFor="let d of item.details">{{ d }}</li>
+        </ul>
+        <div class="tag-row">
+          <span class="soft-tag" *ngFor="let tag of item.tags">{{ tag }}</span>
+        </div>
+        <span class="time-toggle">{{ item.open ? 'Show less −' : 'Show details +' }}</span>
       </div>
-      <div *ngIf="!isMobile" class="experience-detail-container">
-          <div class="experience-detail" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out-cubic" *ngIf="selectedItem">
-              <ul class="experience-details-list">
-                  <li *ngFor="let detail of selectedItem.details">
-                      {{ detail }}
-                  </li>
-              </ul>
-          </div>
-      </div>
+    </div>
   </div>
 </section>
